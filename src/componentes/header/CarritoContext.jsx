@@ -14,14 +14,12 @@ const agregarAlCarrito = (producto) => {
     const existente = prev.find((p) => p.id === producto.id);
 
     if (existente) {
-      // ✅ Si ya existe, suma cantidad y recalcula el total del mismo producto
       return prev.map((p) =>
         p.id === producto.id
           ? { ...p, cantidad: p.cantidad + producto.cantidad }
           : p
       );
     } else {
-      // ✅ Si no existe, lo agrega como nuevo
       return [...prev, producto];
     }
   });
